@@ -1,1 +1,1 @@
-# Brain_Tumor_Detection_CNN
+# Brain Tumor Detection using CNNs
