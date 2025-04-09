@@ -52,3 +52,21 @@ def decoder_block(prev_layer_input, skip_layer_input, n_filters=32):
                  kernel_initializer='HeNormal')(conv)
     
     return output
+
+def upsample (inputs, n_filters):
+
+    cblock1 = encoder_block(inputs, n_filters, dropout_prob=0, max_pooling=True)
+    cblock2 = encoder_block(cblock1[0], n_filters*2, dropout_prob=0, max_pooling=True)
+    cblock3 = encoder_block(cblock2[0], n_filters*4, dropout_prob=0, max_pooling=True)
+    cblock4 = encoder_block(cblock3[0], n_filters*8, dropout_prob=0.3, max_pooling=True)
+    encoded_output = encoder_block(cblock4[0], n_filters*16, dropout_prob=0.3, max_pooling=False)
+    cache = [cblock1,cblock2,cblock3,cblock4]
+
+    return encoded_output, cache
+
+def downsample(encoded_output, cache, n_filters):
+    cblock1,cblock2,cblock3,cblock4 = cache
+    ublock6 = decoder_block(encoded_output, cblock4[1],  n_filters * 8)
+    ublock7 = decoder_block(ublock6, cblock3[1],  n_filters * 4)
+    ublock8 = decoder_block(ublock7, cblock2[1],  n_filters * 2)
+    ublock9 = decoder_block(ublock8, cblock1[1],  n_filters)
