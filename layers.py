@@ -53,7 +53,7 @@ def decoder_block(prev_layer_input, skip_layer_input, n_filters=32):
     
     return output
 
-def upsample (inputs, n_filters):
+def downsample (inputs, n_filters):
 
     cblock1 = encoder_block(inputs, n_filters, dropout_prob=0, max_pooling=True)
     cblock2 = encoder_block(cblock1[0], n_filters*2, dropout_prob=0, max_pooling=True)
@@ -64,9 +64,12 @@ def upsample (inputs, n_filters):
 
     return encoded_output, cache
 
-def downsample(encoded_output, cache, n_filters):
+def upsample(encoded_output, cache, n_filters):
+
     cblock1,cblock2,cblock3,cblock4 = cache
     ublock6 = decoder_block(encoded_output, cblock4[1],  n_filters * 8)
     ublock7 = decoder_block(ublock6, cblock3[1],  n_filters * 4)
     ublock8 = decoder_block(ublock7, cblock2[1],  n_filters * 2)
     ublock9 = decoder_block(ublock8, cblock1[1],  n_filters)
+
+    return ublock9
