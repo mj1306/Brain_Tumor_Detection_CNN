@@ -10,13 +10,13 @@ def WNet (input_size=(128, 128, 4), n_filters=32, n_classes=3):
     encoded_output_2, cache_2 = downsample(decoded_output_1, n_filters)
     decoded_output_2 = upsample(encoded_output_2, cache_2, n_filters)
 
-    conv9 = tf.keras.layers.Conv2D(n_filters,
+    conv9 = tf.keras.layers.Conv3D(n_filters,
                  3,
                  activation='relu',
                  padding='same',
                  kernel_initializer='he_normal')(decoded_output_2)
 
-    conv10 = tf.keras.layers.Conv2D(n_classes, 1, padding='same')(conv9)
+    conv10 = tf.keras.layers.Conv3D(n_classes, 1, padding='same')(conv9)
 
     output = tf.keras.layers.Softmax()(conv10)
     
