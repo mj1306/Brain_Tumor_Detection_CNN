@@ -5,7 +5,7 @@ In this project, I aim to leverage a Deep CNN architecture to carry out segmenta
 
 ## Project Overview
 
-The focus of this project is to develop an efficient CNN to segment brain tumors by training on the **BRATS 2020 dataset** using a **W-Net** [more on this later](model-architecture) Convolutional Neural Network. The architecture takes 3D volumes (stacked along the z-xis) of T1, T1ce, T2, and FLAIR images and outputs #D segmentation maps labeling tumor sub-regions.
+The focus of this project is to develop an efficient CNN to segment brain tumors by training on the **BRATS 2020 dataset** using a **W-Net** [more on this later](#model-architecture) Convolutional Neural Network. The architecture takes 3D volumes (stacked along the z-xis) of T1, T1ce, T2, and FLAIR images and outputs #D segmentation maps labeling tumor sub-regions.
 
 ### Objectives: 
 
