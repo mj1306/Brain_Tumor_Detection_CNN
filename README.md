@@ -5,12 +5,22 @@ In this project, I aim to leverage a Deep CNN architecture to carry out segmenta
 
 ## Project Overview
 
-The focus of this project is to develop an efficient CNN to segment brain tumors by training on the **BRATS 2020 dataset** using a **W-Net** (more on this later) Convolutional Neural Network. The architecture takes 3D volumes (stacked along the z-xis) of T1, T1ce, T2, and FLAIR images and outputs #D segmentation maps labeling tumor sub-regions.
+The focus of this project is to develop an efficient CNN to segment brain tumors by training on the **BRATS 2020 dataset** using a **W-Net** [more on this later](model-architecture) Convolutional Neural Network. The architecture takes 3D volumes (stacked along the z-xis) of T1, T1ce, T2, and FLAIR images and outputs #D segmentation maps labeling tumor sub-regions.
 
 ### Objectives: 
 
 - Preprocess 3D MRI slices and create complete volumes.
 - Train the model on the volumetric data
 - Evaluate model performance nd visualize predictions
+
+## Dataset
+
+For the purpose of this project, I am using the BRATS 2020 dataset containing:
+- Muti-modal MRI scans: T1, T1ce, T2, and FLAIR
+- Ground truth (y) segmentation masks
+Each subject contains 3D volumes of shape (240,240,155) - 240 X 240 height and widh, 155 slices per modality.
+
+## Model Architecture
+
 
 
