@@ -26,8 +26,9 @@ The focus of this project is to develop an efficient CNN to segment brain tumors
 ## Dataset
 
 For the purpose of this project, I am using the BRATS 2020 dataset containing:
-- Muti-modal MRI scans: T1, T1ce, T2, and FLAIR
-- Ground truth (y) segmentation masks
+- Muti-modal MRI scans: T1, T1ce, T2, and FLAIR,
+- Ground truth (y) segmentation masks.
+
 Each subject contains 3D volumes of shape (240,240,155) - 240 X 240 height and widh, 155 slices per modality.
 
 ## Data Preprocessing
